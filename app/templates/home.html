@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
+  <p>Sos un: {{ user.profile_type() }}</p>
+  <p>Algunos datos relevantes son:</p>
+  {% if user.is_empresa() %}
+    <p>CUIT: {{ user.profile().cuit }}</p>
+  {% endif %}
+  {% if user.is_desocupado() %}
+    <p>DNI: {{ user.profile().dni }}</p>
+  {% endif %}
+{% endblock %}

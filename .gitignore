@@ -1,0 +1,24 @@
+# Archivos de python y django a ignorar
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+node_modules/
+tests/coverage_html/
+tests/.coverage
+build/
+tests/report/
+
+# Archivos del sistema operativo y editores a ignorar
+.vscode
+.idea
+.DS_Store
+thumbs.db
+thumbnails.db
+*~
+
