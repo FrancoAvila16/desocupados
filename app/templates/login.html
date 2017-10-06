@@ -1,7 +1,36 @@
-{% extends 'base.html' %}
+ <html>
+        <head>
+             <link rel="icon" href="https://icon-icons.com/icons2/567/PNG/512/briefcase_icon-icons.com_54413.png" type="image/gif" sizes="16x16"> 
+             <title>Colocaciones</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{{ static('css/style.css') }}">
+            <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        </head>
+        <body style="background-color:#ADD1E9;" >
+        <div class="page-header">
+          
+         
+            <h1><center>Ingresar</center>  </h1>
+
+</div>
+
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+
+<div class="contenido">
 
 {% block content %}
-  <h2>Log in to My Site</h2>
   {% if form.errors %}
     <p style="color: red">Your username and password didn't match. Please try again.</p>
   {% endif %}
@@ -20,7 +49,20 @@
         {% endif %}
       </p>
     {% endfor %}
-    <button type="submit">Log in</button>
+    <button type="submit">Ingresar</button>
     <a href="{{ url('registrar.desocupado') }}">New to My Site? Sign up</a>
   </form>
 {% endblock %}
+
+</div>
+                </div>
+             </div>
+        </div>
+
+    </body>
+    </html>
+
+
+
+
+

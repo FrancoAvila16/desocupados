@@ -1,8 +1,38 @@
-{% extends 'base.html' %}
+<html>
+        <head>
+             <link rel="icon" href="https://icon-icons.com/icons2/567/PNG/512/briefcase_icon-icons.com_54413.png" type="image/gif" sizes="16x16"> 
+             <title>Colocaciones</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{{ static('css/style.css') }}">
+            <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        </head>
+        <body style="background-color:#ADD1E9;" >
+        <div class="page-header">
+          
+         
+            <h1><center>Nuevo usuario</center>  </h1>
+            <h2 style="color:white"><center>Registrarme</center></h2>
+
+</div>
+
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+<div class="contenido">
 
 {% block content %}
-  <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
-  <p>Sos un: {{ user.profile_type() }}</p>
+  <h2>Bienvenido, {{ user.get_full_name() }} </h2>
+  <p>Te registraste como: {{ user.profile_type() }}</p>
   <p>Algunos datos relevantes son:</p>
   {% if user.is_empresa() %}
     <p>CUIT: {{ user.profile().cuit }}</p>
@@ -11,3 +41,16 @@
     <p>DNI: {{ user.profile().dni }}</p>
   {% endif %}
 {% endblock %}
+
+</div>
+                </div>
+             </div>
+        </div>
+
+    </body>
+    </html>
+
+
+
+
+
