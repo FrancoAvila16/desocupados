@@ -1,3 +1,4 @@
+
 <html>
         <head>
              <link rel="icon" href="https://icon-icons.com/icons2/567/PNG/512/briefcase_icon-icons.com_54413.png" type="image/gif" sizes="16x16"> 
@@ -16,9 +17,9 @@
         <body style="background-color:#ADD1E9;" >
         <div class="page-header">
           
-         
-            <h1><center>Nuevo usuario</center>  </h1>
-            <h2 style="color:white"><center>Registrarme</center></h2>
+            <a href="{{ url('logout') }}" class="top-menu" ><span class="btn btn-default">Cerrar sesion</span></a>
+            <h1><center>Bienvenido {{ user.get_full_name() }}</h1>
+            <h2 style="color:white"><center>Datos personales</h2>
 
 </div>
 
@@ -33,12 +34,26 @@
 {% block content %}
   <h2>Bienvenido, {{ user.get_full_name() }} </h2>
   <p>Te registraste como: {{ user.profile_type() }}</p>
-  <p>Algunos datos relevantes son:</p>
+  <p>Datos cargados:</p>
   {% if user.is_empresa() %}
     <p>CUIT: {{ user.profile().cuit }}</p>
   {% endif %}
   {% if user.is_desocupado() %}
     <p>DNI: {{ user.profile().dni }}</p>
+	<p>Nombre: {{ user.profile().nombre }}</p>
+	<p>Apellido: {{ user.profile().apellido }}</p>
+	<p>Fecha de nacimiento: {{ user.profile().fecha_nacimiento }}</p>
+	<p>Localidad: {{ user.profile().localidad }}</p>
+	<p>Profesion: </p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+
   {% endif %}
 {% endblock %}
 
