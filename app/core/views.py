@@ -92,3 +92,19 @@ def handle_registro_empresa_form(request):
         return redirect('login')
     else:
         return render(request, 'signup.html', {'form': form})
+
+def modificar_desocupado(request):
+    args = {}
+    user = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = ModificarDesocupado(request.POST, instance=user.desocupado)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ModificarDesocupado(instance=user.desocupado)
+
+    args['form'] = form
+    return render(request, 'modificar-desocupado.html', args)
+
