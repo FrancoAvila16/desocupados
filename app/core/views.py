@@ -1,10 +1,12 @@
 from django.shortcuts import render
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
-
-from app.core.forms import RegistroDesocupado, RegistroEmpresa
+from django.shortcuts import render, redirect, render_to_response
+from django.contrib.auth.models import *
+from app.core.forms import *
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.core.urlresolvers import reverse
+from .models import *
 
 @login_required
 def home(request):
@@ -46,6 +48,32 @@ def handle_registro_desocupado_form(request):
     else:
         # Quedarse en la misma página y mostrar errores
         return render(request, 'signup.html', {'form': form})
+
+def borrar_cuenta(request):
+    if request.method == 'GET':
+        return get_borrar_cuenta_form(request)
+    elif request.method == 'POST':
+        return handle_borrar_cuenta_form(request)
+
+def get_borrar_cuenta_form(request):
+    user = request.user
+    user.refresh_from_db()
+    form = BorrarCuenta()
+    return render(request, 'borrar-cuenta.html', {'form': form, 'user': user})
+
+def handle_borrar_cuenta_form(request):
+    username = request.user.username
+    form = BorrarCuenta(request.POST)
+    if form.is_valid():
+        rem = User.objects.get(username=username)
+        if rem is not None:
+            rem.delete()
+        else:
+            return None
+        return redirect('home')
+    else:
+        return render(request, 'borrar-cuenta.html', {'form': form})
+@login_required
 
 def registro_empresa(request):
     if request.method == "GET":

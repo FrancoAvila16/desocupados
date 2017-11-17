@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{{ load('static') }}
+
+{% block content %}
+  <head>
+       <link rel="stylesheet" href="{{ static('css/style.css') }}">
+  </head>
+
+  <div class="container">
+    <div class="login-container">
+              <div id="output"></div>
+              <div class="form-box">
+  {% if form.errors %}
+    <p style="color: red">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+      <form method="post">
+    {{ csrf_input }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% for field in form %}
+      <p>
+        {{ field.label_tag() }}<br>
+        {{ field }}<br>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {% if field.help_text %}
+          <p><small style="color: grey">{{ field.help_text }}</small></p>
+        {% endif %}
+      </p>
+    {% endfor %}
+    <button type="submit">Aceptar</button>
+  </form>
+
+  </div>
+</div>
+
+</div>
+{% endblock %}

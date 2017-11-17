@@ -65,3 +65,6 @@ class RegistroEmpresa(UserCreationForm):
         user.save()
         # Y lo devolvemos
         return user
+
+class BorrarCuenta(forms.Form):
+    estas_seguro = forms.BooleanField()
