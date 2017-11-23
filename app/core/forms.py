@@ -98,3 +98,30 @@ class RegistroEmpresa(UserCreationForm):
 
 class BorrarCuenta(forms.Form):
     estas_seguro = forms.BooleanField()
+
+class ModificarEmpresa(forms.ModelForm):
+    cuit = forms.CharField(max_length=10)
+    razon_social = forms.CharField()
+    rubro = forms.CharField()
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'cuit', 'razon_social', 'rubro')
+
+    def clean_email(self):
+        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
+
+        if email and User.objects.filter(email=email).exclude(username=username).count():
+            raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
+        return email
+
+    def save(self, commit=True):
+        user = super(ModificarEmpresa, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+
+        if commit:
+            user.save()
+
+        return user
+

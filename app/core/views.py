@@ -108,3 +108,19 @@ def modificar_desocupado(request):
     args['form'] = form
     return render(request, 'modificar-desocupado.html', args)
 
+
+def modificar_empresa(request):
+    args = {}
+    user = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = ModificarEmpresa(request.POST, instance=user.empresa)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ModificarEmpresa(instance=user.empresa)
+
+    args['form'] = form
+    return render(request, 'modificar-empresa.html', args)
+
