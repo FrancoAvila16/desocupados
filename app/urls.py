@@ -23,7 +23,9 @@ urlpatterns = [
     url(r'^$', core_views.home, name='home'),
     url(r'^registrar/desocupado$', core_views.registro_desocupado, name='registrar.desocupado'),
     url(r'^registrar/empresa$', core_views.registro_empresa, name='registrar.empresa'),
-    url(r'^borrar_cuenta', core_views.borrar_cuenta, name='borrar_cuenta'),  
+    url(r'^borrar_cuenta', core_views.borrar_cuenta, name='borrar_cuenta'), 
+    url(r'^ofertas', core_views.ofertas, name='ofertas'),
+    url(r'^registrar/oferta$', core_views.crear_oferta, name='crear_oferta'), 
     url(r'^modificar_desocupado', core_views.modificar_desocupado, name='modificar_desocupado'),
     url(r'^modificar_empresa', core_views.modificar_empresa, name='modificar_empresa'),
 ]

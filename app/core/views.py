@@ -49,6 +49,28 @@ def handle_registro_desocupado_form(request):
         # Quedarse en la misma página y mostrar errores
         return render(request, 'signup.html', {'form': form})
 
+def ofertas(request):
+    ofertas = OfertaLaboral.objects.all()
+    return render(request, 'ofertas.html', {'ofertas': ofertas})
+
+def crear_oferta(request):
+    if request.method == "GET":
+        return get_crear_oferta_form(request)
+    elif request.method == "POST":
+        return handle_crear_oferta_form(request)
+
+def get_crear_oferta_form(request):
+    form = RegistroOferta()
+    return render(request, 'crear_oferta.html', {'form': form})
+                  
+def handle_crear_oferta_form(request):
+    form = RegistroOferta(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('ofertas')
+    else:
+        return render(request, 'crear_oferta.html', {'form': form})
+
 def borrar_cuenta(request):
     if request.method == 'GET':
         return get_borrar_cuenta_form(request)

@@ -18,6 +18,7 @@
 	<p>Trabajo Realizable: {{ user.profile().trabajo_realizable }} </p>
   {% endif %}
 
-   <p>Ir a modificar tu cuenta <a href="{% if user.is_empresa %} modificar_empresa {% elif user.is_desocupado %} modificar_desocupado {% endif %}">Modificar cuenta</a></p>
-	<p>Ir a borrar cuenta <a href="{{ url('borrar_cuenta') }}">Borrar cuenta</a></p>
+   <p>Ir a modificar tu cuenta <a href="{% if user.is_empresa %} modificar_empresa {% elif user.is_desocupado %} modificar_desocupado {% endif %}">MODIFICAR CUENTA</a></p>
+	<p>Ir a borrar cuenta <a href="{{ url('borrar_cuenta') }}">BORRAR CUENTA</a></p>
+	<p>Ir a crear oferta <a href="{{ url('crear_oferta') }}">CREAR OFERTA</a></p>
 {% endblock %}

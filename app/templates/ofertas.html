@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for oferta in ofertas %}
+<div>
+  <h2>Oferta:</h2>
+  <p>Posicion: {{ oferta.posicion }}</p>
+  <p>Descripcion: {{ oferta.descripcion }}</p>
+  <p>Carga horaria: {{ oferta.carga_horaria }}</p>
+  <p>Profesion: {{ oferta.profesion }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -70,4 +70,7 @@ def update_user_empresa(sender, instance, created, **kwargs):
         
 class OfertaLaboral(models.Model):
     # empresa_oferta = models.ForeignKey(Empresa)
-    tipo_de_trabajo = models.CharField(max_length=50)
+    posicion = models.CharField(max_length=100)
+    descripcion = models.TextField(null=True)
+    carga_horaria = models.DurationField(null=True)
+    profesion = models.CharField(max_length=100)
